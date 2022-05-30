@@ -160,7 +160,7 @@ function Main() {
                     <li>Each year of your course counts for 120 “credits”. This might be in the form of eight 15-credit modules. Or it might include some 30-credit modules (eg: practical modules for Media & Comms students).</li>
                     <li>If your course includes one of these double-strength modules, you should enter the credit mark for that module twice in the boxes below.</li>
                     <li>Your final grade will be calculated from the 90 best credit (or no credits) marks from your first year, the 105 best credit marks from your second year, and the 105 best credit marks from your third year. <a className="link" href="https://www.gold.ac.uk/students/assessments/undergraduate-final-result-calculation/">For more information see the official guidance.</a></li>
-                    <li></li>
+
                 </ul>
             </div>
             <GradeInput setWeightFunction ={setWeight} year="First"/>
