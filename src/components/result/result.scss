@@ -1,0 +1,29 @@
+
+.resultParent{
+    -webkit-box-shadow:2px 4px 10px 1px rgba(0,0,0,0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    .top{
+        border-bottom: 2px solid black;
+        padding-bottom: 10px;
+    }
+    .bottom{
+        margin-top: 10px;
+    }
+    
+
+    .subHeading{
+        text-align: center;
+    }
+    li{
+        margin-top: 20px;
+    }
+    .breakdown{
+        margin-top: 20px;
+    }
+}

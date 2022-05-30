@@ -1,0 +1,80 @@
+.parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .container{
+        max-width: 800px;
+        .title{
+            font-size: 70px;
+            font-weight: 800;
+        }
+        .link{
+            
+            text-decoration: none;
+            background-color: rgba(237, 83, 83, 0.22);
+            color: black;
+            &:visited{
+                text-decoration: none;
+            }
+            &:hover{
+                background-color: rgba(237, 155, 83, 0.22);  
+            }
+        }
+        .author{
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        .infoBox{
+            -webkit-box-shadow:2px 4px 10px 1px rgba(0,0,0,0.47);
+            box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
+            padding: 10px;
+            margin-bottom: 100px;
+        }
+
+        .subHeading{
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .helpButton{
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            font-weight: 300;
+        }
+
+        .helpBox{
+            -webkit-box-shadow:2px 4px 10px 1px rgba(0,0,0,0.47);
+            box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
+            padding: 10px;
+            text-align: left;
+            li{
+                margin-bottom: 10px;
+            }
+
+        }
+
+        .calculateButton{
+            width: 100%;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+    footer{
+        margin-top: 100px;
+        border-top: 1px solid rgba(0, 0, 0, 0.614);
+        width: 100%;
+        padding: 20px 0px;
+        
+        display: flex;
+        justify-content: center;
+
+        .trademark{
+            margin-top: 20px;
+            font-style: italic;
+            font-weight: 300;
+        }
+    }
+}

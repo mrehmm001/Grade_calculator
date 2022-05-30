@@ -1,0 +1,26 @@
+.inputParent{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    -webkit-box-shadow:2px 4px 10px 1px rgba(0,0,0,0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
+    padding: 20px;
+    margin: 20px 0px 20px;
+    border-radius: 10px;
+    .inputTitle{
+        font-size: 30px;
+    }
+    .inputs{
+        display: flex;
+        
+        .input{
+            width: 100%;
+            margin: 10px;
+            border: none;
+            outline: none;
+            background-color: rgb(230, 230, 230);
+            padding: 10px;
+            border-radius: 10px;
+        }
+    }
+}
