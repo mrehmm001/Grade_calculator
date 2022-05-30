@@ -159,8 +159,8 @@ function Main() {
                     <li>A “credit mark” is the mark you were awarded for completing a module (eg: the mark you were given for your module’s final essay, usually a number around 50–70).</li>
                     <li>Each year of your course counts for 120 “credits”. This might be in the form of eight 15-credit modules. Or it might include some 30-credit modules (eg: practical modules for Media & Comms students).</li>
                     <li>If your course includes one of these double-strength modules, you should enter the credit mark for that module twice in the boxes below.</li>
-                    <li>Your final grade will be calculated from the 90 best credit marks from your first year, the 105 best credit marks from your second year, and the 105 best credit marks from your third year. <a className="link" href="https://www.gold.ac.uk/students/assessments/undergraduate-final-result-calculation/">For more information see the official guidance.</a></li>
-                    <li>If you don’t know all of your marks for a certain year, just fill in the ones you do know, and the calculator will extrapolate an average to give you an estimated final result.</li>
+                    <li>Your final grade will be calculated from the 90 best credit (or no credits) marks from your first year, the 105 best credit marks from your second year, and the 105 best credit marks from your third year. <a className="link" href="https://www.gold.ac.uk/students/assessments/undergraduate-final-result-calculation/">For more information see the official guidance.</a></li>
+                    <li></li>
                 </ul>
             </div>
             <GradeInput setWeightFunction ={setWeight} year="First"/>
