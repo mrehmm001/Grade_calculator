@@ -46,11 +46,20 @@ function Main() {
         return "Fail"
     }
 
-    const checkTwoPercentRule = (grade,credits)=>{
-        if(grade<70 && grade+2>=70 && credits>=120) return true;
-        if(grade<60 && grade+2>=60 && credits>=120) return true;
-        if(grade<50 && grade+2>=50 && credits>=120) return true;
-        if(grade<40 && grade+2>=40 && credits>=120) return true;
+    const checkTwoPercentRule = (grade,weights)=>{
+        if(grade<70 && grade+2>=70){
+            weights = weights.filter(x=>x>=70).map(x=>x=15).reduce((partialSum, a) => partialSum + a, 0);
+            return weights>=120;
+        }if(grade<60 && grade+2>=60){
+            weights = weights.filter(x=>x>=60).map(x=>x=15).reduce((partialSum, a) => partialSum + a, 0);
+            return weights>=120;
+        }if(grade<50 && grade+2>=50){
+            weights = weights.filter(x=>x>=50).map(x=>x=15).reduce((partialSum, a) => partialSum + a, 0);
+            return weights>=120;
+        }if(grade<40 && grade+2>=40){
+            weights = weights.filter(x=>x>=60).map(x=>x=15).reduce((partialSum, a) => partialSum + a, 0);
+            return weights>=120;
+        }
         return false;
     }
 
@@ -116,7 +125,7 @@ function Main() {
         let finalGrade = Math.max(weightedTotal1,weightedTotal2);
         let breakdown = (<div></div>)
    
-        if(checkTwoPercentRule(finalGrade,secondYearCreditTotal+thirdYearCreditTotal)){
+        if(checkTwoPercentRule(finalGrade,[...secondYearWeightsSorted,...thirdYearWeightsSorted])){
             finalGrade = applyTwoPercentRule(finalGrade)
             breakdown=(<div>
                 <div className="breakdown">
@@ -218,11 +227,17 @@ Students on Taught Programmes 9.3.6</a></b> you will automatically be  awarded t
             <div className="helpButton" onClick={()=>setShowHelp(!showHelp)}>{!showHelp? <ArrowRightIcon/>:<ArrowDropDownIcon/>} Need help?</div>
             <div className="helpBox" style={{display:showHelp?"block":"none"}}>
                 <ul>
-                    <li>A “credit mark” is the mark you were awarded for completing a module (eg: the mark you were given for your module’s final essay, usually a number around 50–70).</li>
-                    <li>Each year of your course counts for 120 “credits”. This might be in the form of eight 15-credit modules. Or it might include some 30-credit modules (eg: practical modules for Media & Comms students).</li>
-                    <li>If your course includes one of these double-strength modules, you should enter the credit mark for that module twice in the boxes below.</li>
+                <li>A credit in university is an academic unit of measurement of the value of a module. You are awarded the credit once you complete this module (e.g: the marks you achieve for your module's final essay, usually a number around 50-70). </li>
+                    <li>Each year of your course contains 120 credits, which can be from eight 15-credit modules or a combination of 30-credit modules.</li>
+                    <li>If the course is worth 30 credits then you should enter the marks two times. Likewise, for 60 credit modules you should enter the marks 4 times.</li>
                     <li>Your final grade will be calculated from the 90 best credit (or no credits) marks from your first year, the 105 best credit marks from your second year, and the 105 best credit marks from your third year. <a className="link" href="https://www.gold.ac.uk/students/assessments/undergraduate-final-result-calculation/">For more information see the official guidance.</a></li>
-                    <li>If you are not sure </li>
+                    <li>If you do not know the marks for some of your modules, try to make a rough estimate or leave them blank (these will be counted as 0).</li>
+                    <li>The calculator follows the grading system for students who completed assessments for level 4 and 5 in 2019/20. According to this grading system, level 4 can be discounted if it gets you the higher classification.</li>
+                    <li>The calculator follows algorithm (see <b><a href="https://www.gold.ac.uk/media/docs/gam/Progression-and-Award-for-Students-on-Taught-Programmes.pdf" className="link">Progression and Award for
+Students on Taught Programmes 9.3.6</a></b> for more info) which essentially awards students a higher classification if they are within 2% below the borderline.
+between two classes of Honours and who have obtained marks in the higher
+classification of modules totalling at least 120 credits in value at Levels 5 and
+6, will automatically be awarded the higher classification.</li>
                 </ul>
             </div>
             <GradeInput setWeightFunction ={setWeight} year="First"/>
