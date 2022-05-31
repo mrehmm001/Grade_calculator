@@ -153,7 +153,7 @@ function Main() {
                 <div className="breakdown">
                 According to <b><a href="https://www.gold.ac.uk/media/docs/gam/Progression-and-Award-for-Students-on-Taught-Programmes.pdf" className="link">Progression and Award for
 Students on Taught Programmes 9.3.6</a></b> you will automatically be  awarded the higher classification:<br/>
-            <b>*{finalGrade} = {classificationFunction(Math.max(weightedTotal1,weightedTotal2))}</b>
+            <b>*{finalGrade} = {classificationFunction(finalGrade)}</b>
                 </div>
 
                 </div>
@@ -194,7 +194,7 @@ Students on Taught Programmes 9.3.6</a></b> you will automatically be  awarded t
                         </div>
 
                         <div className="breakdown">
-                        <b>*{finalGrade} = {classificationFunction(Math.max(weightedTotal1,weightedTotal2))}</b>
+                        <b>*{finalGrade} = {classificationFunction(finalGrade)}</b>
                         </div>
                         </div>
                         )
