@@ -45,6 +45,23 @@ function Main() {
 
         return "Fail"
     }
+
+    const checkTwoPercentRule = (grade,credits)=>{
+        if(grade<70 && grade+2>=70 && credits>=120) return true;
+        if(grade<60 && grade+2>=60 && credits>=120) return true;
+        if(grade<50 && grade+2>=50 && credits>=120) return true;
+        if(grade<40 && grade+2>=40 && credits>=120) return true;
+        return false;
+    }
+
+    const applyTwoPercentRule = (grade)=>{
+        if(grade<70 && grade+2>=70) return 70;
+        if(grade<60 && grade+2>=60) return 60;
+        if(grade<50 && grade+2>=50) return 50;
+        if(grade<40 && grade+2>=40 ) return 40;
+        return grade;
+    }
+
     const calculateGrade = ()=>{
         setInvalidInput(false);
         const firstYearWeightsSorted = [...firstYearWeights].sort((a,b)=>b-a)
@@ -52,6 +69,7 @@ function Main() {
         const thirdYearWeightsSorted = [...thirdYearWeights].sort((a,b)=>b-a)
 
         let firstYearTotal = 0;
+        let firstYearCreditTotal = 0;
         for(let i=0; i<6; i++){
             let credit = Number(firstYearWeightsSorted[i]);
             //Check valid inputs
@@ -62,8 +80,10 @@ function Main() {
             }
 
             firstYearTotal+=credit;
+            firstYearCreditTotal+=credit*0.15;
         }
         let secondYearTotal = 0;
+        let secondYearCreditTotal = 0;
         for(let i=0; i<7; i++){
             let credit = Number(secondYearWeightsSorted[i]);
             //Check valid inputs
@@ -73,9 +93,11 @@ function Main() {
             }
 
             secondYearTotal+=credit;
+            secondYearCreditTotal+=credit*0.15;
         }
         secondYearTotal*=3;
         let thirdYearTotal = 0;
+        let thirdYearCreditTotal = 0;
         for(let i=0; i<7; i++){
             let credit = Number(thirdYearWeightsSorted[i]);
             //Check valid inputs
@@ -85,61 +107,101 @@ function Main() {
             }
 
             thirdYearTotal+=credit;
+            thirdYearCreditTotal+=credit*0.15;
         }
         thirdYearTotal*=5;
 
         let weightedTotal1 = Math.round((firstYearTotal+secondYearTotal+thirdYearTotal)/62)
         let weightedTotal2 = Math.round((secondYearTotal+thirdYearTotal)/56)
+        let finalGrade = Math.max(weightedTotal1,weightedTotal2);
+        let breakdown = (<div></div>)
    
+        if(checkTwoPercentRule(finalGrade,secondYearCreditTotal+thirdYearCreditTotal)){
+            finalGrade = applyTwoPercentRule(finalGrade)
+            breakdown=(<div>
+                <div className="breakdown">
+                Level 4 (first year) = {firstYearWeightsSorted.slice(0,6).join(" + ")} = <b>{firstYearTotal}</b> (or 0)<br/>
+                Level 5 (second year) = {secondYearWeightsSorted.slice(0,7).join(" + ")} = <b>{secondYearTotal/3}</b><br/>
+                Level 6 (third year) = {thirdYearWeightsSorted.slice(0,7).join(" + ")} = <b>{thirdYearTotal/5}</b>
+                </div>
+                
+                <div className="breakdown">
+                The result for Level 4 is multiplied by 1:<br/>
+                {firstYearTotal} * 1 = <b>{firstYearTotal}</b>
+                </div>
+                
+                <div className="breakdown">
+                The result for Level 5 is multiplied by 3:<br/>
+                {secondYearTotal/3} * 3 = <b>{secondYearTotal}</b>
+                </div>
 
-        const breakdown=(<div>
-                     <div className="breakdown">
-                     Level 4 (first year) = {firstYearWeightsSorted.slice(0,6).join(" + ")} = <b>{firstYearTotal}</b> (or 0)<br/>
-                     Level 5 (second year) = {secondYearWeightsSorted.slice(0,7).join(" + ")} = <b>{secondYearTotal/3}</b><br/>
-                     Level 6 (third year) = {thirdYearWeightsSorted.slice(0,7).join(" + ")} = <b>{thirdYearTotal/5}</b>
-                     </div>
-                     
-                     <div className="breakdown">
-                     The result for Level 4 is multiplied by 1:<br/>
-                     {firstYearTotal} * 1 = <b>{firstYearTotal}</b>
-                     </div>
-                     
-                     <div className="breakdown">
-                     The result for Level 5 is multiplied by 3:<br/>
-                     {secondYearTotal/3} * 3 = <b>{secondYearTotal}</b>
-                     </div>
+                <div className="breakdown">
+                The result for Level 5 is multiplied by 5:<br/>
+                {thirdYearTotal/5} * 5 = <b>{thirdYearTotal}</b>
+                </div>
 
-                    <div className="breakdown">
-                     The result for Level 5 is multiplied by 5:<br/>
-                     {thirdYearTotal/5} * 5 = <b>{thirdYearTotal}</b>
-                     </div>
+                <div className="breakdown">
+                (Including level 4) Add all together and divide by 62:<br/>
+                ({firstYearTotal} + {secondYearTotal} + {thirdYearTotal})/62 = <b>{weightedTotal1}</b> (to the nearest whole number) 
+                </div>
 
-                     <div className="breakdown">
-                     (Including level 4) Add all together and divide by 62:<br/>
-                     ({firstYearTotal} + {secondYearTotal} + {thirdYearTotal})/62 = <b>{weightedTotal1}</b> (to the nearest whole number) 
-                     </div>
+                <div className="breakdown">
+                (Discounting Level 4) Add all together and divide by 56:<br/>
+                ({secondYearTotal} + {thirdYearTotal})/56 = <b>{weightedTotal2}</b> (to the nearest whole number) 
+                </div>
 
-                     <div className="breakdown">
-                     (Discounting Level 4) Add all together and divide by 56:<br/>
-                     ({secondYearTotal} + {thirdYearTotal})/56 = <b>{weightedTotal2}</b> (to the nearest whole number) 
-                     </div>
+                <div className="breakdown">
+                According to <b>Progression and Award for
+Students on Taught Programmes 9.3.6</b> you will automatically be  awarded the higher classification:<br/>
+            <b>*{finalGrade} = {classificationFunction(Math.max(weightedTotal1,weightedTotal2))}</b>
+                </div>
 
-                     <div className="breakdown">
-                     <b>*{Math.max(weightedTotal1,weightedTotal2)} = {classificationFunction(Math.max(weightedTotal1,weightedTotal2))}</b>
-                     </div>
-                     </div>
-                    )
-        
-        setResult(Math.max(weightedTotal1,weightedTotal2));
-        setResultBreakDown(breakdown);
-
-        //Reset all the states
-
+                </div>
+                )
 
         
+        }else{
+            breakdown=(<div>
+                        <div className="breakdown">
+                        Level 4 (first year) = {firstYearWeightsSorted.slice(0,6).join(" + ")} = <b>{firstYearTotal}</b> (or 0)<br/>
+                        Level 5 (second year) = {secondYearWeightsSorted.slice(0,7).join(" + ")} = <b>{secondYearTotal/3}</b><br/>
+                        Level 6 (third year) = {thirdYearWeightsSorted.slice(0,7).join(" + ")} = <b>{thirdYearTotal/5}</b>
+                        </div>
+                        
+                        <div className="breakdown">
+                        The result for Level 4 is multiplied by 1:<br/>
+                        {firstYearTotal} * 1 = <b>{firstYearTotal}</b>
+                        </div>
+                        
+                        <div className="breakdown">
+                        The result for Level 5 is multiplied by 3:<br/>
+                        {secondYearTotal/3} * 3 = <b>{secondYearTotal}</b>
+                        </div>
 
+                        <div className="breakdown">
+                        The result for Level 5 is multiplied by 5:<br/>
+                        {thirdYearTotal/5} * 5 = <b>{thirdYearTotal}</b>
+                        </div>
 
+                        <div className="breakdown">
+                        (Including level 4) Add all together and divide by 62:<br/>
+                        ({firstYearTotal} + {secondYearTotal} + {thirdYearTotal})/62 = <b>{weightedTotal1}</b> (to the nearest whole number) 
+                        </div>
 
+                        <div className="breakdown">
+                        (Discounting Level 4) Add all together and divide by 56:<br/>
+                        ({secondYearTotal} + {thirdYearTotal})/56 = <b>{weightedTotal2}</b> (to the nearest whole number) 
+                        </div>
+
+                        <div className="breakdown">
+                        <b>*{finalGrade} = {classificationFunction(Math.max(weightedTotal1,weightedTotal2))}</b>
+                        </div>
+                        </div>
+                        )
+        }
+        
+        setResult(finalGrade);
+        setResultBreakDown(breakdown);      
     }
     return (
     <div className="parent">
