@@ -151,8 +151,8 @@ function Main() {
                 </div>
 
                 <div className="breakdown">
-                According to <b>Progression and Award for
-Students on Taught Programmes 9.3.6</b> you will automatically be  awarded the higher classification:<br/>
+                According to <b><a href="https://www.gold.ac.uk/media/docs/gam/Progression-and-Award-for-Students-on-Taught-Programmes.pdf" className="link">rogression and Award for
+Students on Taught Programmes 9.3.6</a>P</b> you will automatically be  awarded the higher classification:<br/>
             <b>*{finalGrade} = {classificationFunction(Math.max(weightedTotal1,weightedTotal2))}</b>
                 </div>
 
@@ -222,7 +222,7 @@ Students on Taught Programmes 9.3.6</b> you will automatically be  awarded the h
                     <li>Each year of your course counts for 120 “credits”. This might be in the form of eight 15-credit modules. Or it might include some 30-credit modules (eg: practical modules for Media & Comms students).</li>
                     <li>If your course includes one of these double-strength modules, you should enter the credit mark for that module twice in the boxes below.</li>
                     <li>Your final grade will be calculated from the 90 best credit (or no credits) marks from your first year, the 105 best credit marks from your second year, and the 105 best credit marks from your third year. <a className="link" href="https://www.gold.ac.uk/students/assessments/undergraduate-final-result-calculation/">For more information see the official guidance.</a></li>
-
+                    <li>If you are not sure </li>
                 </ul>
             </div>
             <GradeInput setWeightFunction ={setWeight} year="First"/>
