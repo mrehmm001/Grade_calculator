@@ -233,7 +233,7 @@ Students on Taught Programmes 9.3.6</a></b> you will automatically be  awarded t
                     <li>Your final grade will be calculated from the 90 best credit (or no credits) marks from your first year, the 105 best credit marks from your second year, and the 105 best credit marks from your third year. <a className="link" href="https://www.gold.ac.uk/students/assessments/undergraduate-final-result-calculation/">For more information see the official guidance.</a></li>
                     <li>If you do not know the marks for some of your modules, try to make a rough estimate or leave them blank (these will be counted as 0).</li>
                     <li>The calculator follows the grading system for students who completed assessments for level 4 and 5 in 2019/20. According to this grading system, level 4 can be discounted if it gets you the higher classification.</li>
-                    <li>The calculator follows algorithm (see <b><a href="https://www.gold.ac.uk/media/docs/gam/Progression-and-Award-for-Students-on-Taught-Programmes.pdf" className="link">Progression and Award for
+                    <li>The calculator follows the algorithm (see <b><a href="https://www.gold.ac.uk/media/docs/gam/Progression-and-Award-for-Students-on-Taught-Programmes.pdf" className="link">Progression and Award for
 Students on Taught Programmes 9.3.6</a></b> for more info) which essentially awards students a higher classification if they are within 2% below the borderline.
 between two classes of Honours and who have obtained marks in the higher
 classification of modules totalling at least 120 credits in value at Levels 5 and
