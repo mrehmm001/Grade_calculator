@@ -124,7 +124,7 @@ function Main() {
             breakdown=(<div>
                 <div className="breakdown">
                 Level 4 (first year) = {firstYearWeightsSorted.slice(0,6).join(" + ")} = <b>{firstYearTotal}</b> (or 0)<br/>
-                Level 5 (second year) = {secondYearWeightsSorted.slice(0,7).join(" + ")} = <b>{secondYearTotal/3}</b><br/>
+                Level 5 (second year) = {secondYearWeightsSorted.slice(0,6).join(" + ")} = <b>{secondYearTotal/3}</b><br/>
                 Level 6 (third year) = {thirdYearWeightsSorted.slice(0,7).join(" + ")} = <b>{thirdYearTotal/5}</b>
                 </div>
                 
