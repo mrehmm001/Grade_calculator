@@ -78,7 +78,6 @@ function Main() {
         const thirdYearWeightsSorted = [...thirdYearWeights].sort((a,b)=>b-a)
 
         let firstYearTotal = 0;
-        let firstYearCreditTotal = 0;
         for(let i=0; i<6; i++){
             let credit = Number(firstYearWeightsSorted[i]);
             //Check valid inputs
@@ -89,11 +88,9 @@ function Main() {
             }
 
             firstYearTotal+=credit;
-            firstYearCreditTotal+=credit*0.15;
         }
         let secondYearTotal = 0;
-        let secondYearCreditTotal = 0;
-        for(let i=0; i<7; i++){
+        for(let i=0; i<6; i++){
             let credit = Number(secondYearWeightsSorted[i]);
             //Check valid inputs
             if(credit<0 || credit>100 || !Number.isInteger(credit)){
@@ -102,11 +99,9 @@ function Main() {
             }
 
             secondYearTotal+=credit;
-            secondYearCreditTotal+=credit*0.15;
         }
         secondYearTotal*=3;
         let thirdYearTotal = 0;
-        let thirdYearCreditTotal = 0;
         for(let i=0; i<7; i++){
             let credit = Number(thirdYearWeightsSorted[i]);
             //Check valid inputs
@@ -116,12 +111,11 @@ function Main() {
             }
 
             thirdYearTotal+=credit;
-            thirdYearCreditTotal+=credit*0.15;
         }
         thirdYearTotal*=5;
 
-        let weightedTotal1 = Math.round((firstYearTotal+secondYearTotal+thirdYearTotal)/62)
-        let weightedTotal2 = Math.round((secondYearTotal+thirdYearTotal)/56)
+        let weightedTotal1 = Math.round((firstYearTotal+secondYearTotal+thirdYearTotal)/59)
+        let weightedTotal2 = Math.round((secondYearTotal+thirdYearTotal)/53)
         let finalGrade = Math.max(weightedTotal1,weightedTotal2);
         let breakdown = (<div></div>)
    
@@ -150,13 +144,13 @@ function Main() {
                 </div>
 
                 <div className="breakdown">
-                (Including level 4) Add all together and divide by 62:<br/>
-                ({firstYearTotal} + {secondYearTotal} + {thirdYearTotal})/62 = <b>{weightedTotal1}</b> (to the nearest whole number) 
+                (Including level 4) Add all together and divide by 59:<br/>
+                ({firstYearTotal} + {secondYearTotal} + {thirdYearTotal})/59 = <b>{weightedTotal1}</b> (to the nearest whole number) 
                 </div>
 
                 <div className="breakdown">
-                (Discounting Level 4) Add all together and divide by 56:<br/>
-                ({secondYearTotal} + {thirdYearTotal})/56 = <b>{weightedTotal2}</b> (to the nearest whole number) 
+                (Discounting Level 4) Add all together and divide by 53:<br/>
+                ({secondYearTotal} + {thirdYearTotal})/53 = <b>{weightedTotal2}</b> (to the nearest whole number) 
                 </div>
 
                 <div className="breakdown">
@@ -193,13 +187,13 @@ Students on Taught Programmes 9.3.6</a></b> you will automatically be  awarded t
                         </div>
 
                         <div className="breakdown">
-                        (Including level 4) Add all together and divide by 62:<br/>
-                        ({firstYearTotal} + {secondYearTotal} + {thirdYearTotal})/62 = <b>{weightedTotal1}</b> (to the nearest whole number) 
+                        (Including level 4) Add all together and divide by 59:<br/>
+                        ({firstYearTotal} + {secondYearTotal} + {thirdYearTotal})/59 = <b>{weightedTotal1}</b> (to the nearest whole number) 
                         </div>
 
                         <div className="breakdown">
-                        (Discounting Level 4) Add all together and divide by 56:<br/>
-                        ({secondYearTotal} + {thirdYearTotal})/56 = <b>{weightedTotal2}</b> (to the nearest whole number) 
+                        (Discounting Level 4) Add all together and divide by 53:<br/>
+                        ({secondYearTotal} + {thirdYearTotal})/53 = <b>{weightedTotal2}</b> (to the nearest whole number) 
                         </div>
 
                         <div className="breakdown">
