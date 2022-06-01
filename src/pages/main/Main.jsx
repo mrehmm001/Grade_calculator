@@ -221,10 +221,14 @@ Students on Taught Programmes 9.3.6</a></b> you will automatically be  awarded t
             <div className="helpButton" onClick={()=>setShowHelp(!showHelp)}>{!showHelp? <ArrowRightIcon/>:<ArrowDropDownIcon/>} Need help?</div>
             <div className="helpBox" style={{display:showHelp?"block":"none"}}>
                 <ul>
-                <li>A credit in university is an academic unit of measurement of the value of a module. You are awarded the credit once you complete this module (e.g: the marks you achieve for your module's final essay, usually a number around 50-70). </li>
+                    <li>Each of the 8 inputs is worth 15 credits. <br />
+                            <b>15 credit module:</b> take 1 slot (e.g if you got 87% , write "87" once)<br/>
+                            <b>30 credit module:</b> take 2 slot (e.g if you got 70%, write 70% in two consecutive slots)<br/>
+                            <b>60 credit module (your final project):</b> will take 4 slots.</li>
+                    <li>A credit in university is an academic unit of measurement of the value of a module. You are awarded the credit once you complete this module (e.g: the marks you achieve for your module's final essay, usually a number around 50-70). </li>
                     <li>Each year of your course contains 120 credits, which can be from eight 15-credit modules or a combination of 30-credit modules.</li>
-                    <li>If the course is worth 30 credits then you should enter the marks two times. Likewise, for 60 credit modules you should enter the marks 4 times.</li>
-                    <li>Your final grade will be calculated from the 90 best credit (or no credits) marks from your first year, the 105 best credit marks from your second year, and the 105 best credit marks from your third year. <a className="link" href="https://www.gold.ac.uk/students/assessments/undergraduate-final-result-calculation/">For more information see the official guidance.</a></li>
+
+                    <li>Your final grade will be calculated from the 90 best credit (or no credits) marks from your first year, the 90 best credit marks from your second year, and the 105 best credit marks from your third year. <a className="link" href="https://www.gold.ac.uk/students/assessments/undergraduate-final-result-calculation/">For more information see the official guidance.</a></li>
                     <li>If you do not know the marks for some of your modules, try to make a rough estimate or leave them blank (these will be counted as 0).</li>
                     <li>The calculator follows the grading system for students who completed assessments for level 4 and 5 in 2019/20. According to this grading system, level 4 can be discounted if it gets you the higher classification.</li>
                     <li>The calculator follows the algorithm (see <b><a href="https://www.gold.ac.uk/media/docs/gam/Progression-and-Award-for-Students-on-Taught-Programmes.pdf" className="link">Progression and Award for
